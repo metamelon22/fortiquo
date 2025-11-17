@@ -83,12 +83,12 @@ echo ""
 # Pipelines directly, so skip unless you are completing a source/developer install.
 # Ubuntu special cases above.
 if [ ! "$CI" ]; then
-  echo "Running git submodule update --init --recursive."
+  echo "Running git submodule update --init --recursive (forcing clean checkout)."
   echo ""
-  git submodule update --init --recursive
+  git submodule update --init --recursive --force --checkout
   echo "Running git submodule update."
   echo ""
-  git submodule update
+  git submodule update --force --checkout
   cd chia-blockchain-gui
 
   if [ "$SUBMODULE_BRANCH" ]; then
